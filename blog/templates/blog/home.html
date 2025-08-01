@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My blog Home</title>
+    <style>
+        .blog-posts{
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Blog</h1>
+    <p>This is my Django blog</p>
+    {% for post in posts %}
+        <article class="blog-posts">
+            <h2>{{ post.title }}</h2>
+            <p>By John omm {{ post.date_posted|date:"F d, Y" }}</p>
+            <P>{{ post.content }}</p>
+        </article>
+    {% empty %}
+        <p>No posts</p>
+    {% endfor %}
+    <a href="{% url 'about' %}">Go to About Page</a>
+</body>
+</html>
